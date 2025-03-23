@@ -2,14 +2,13 @@ import { currentUser } from "@clerk/nextjs/server";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 import Link from "next/link";
-import {  Code2, Sparkles} from "lucide-react";
+import { Code2, Sparkles } from "lucide-react";
 
 import ThemeSelector from "./ThemeSelector";
 import LanguageSelector from "./LanguageSelector";
 import RunButton from "./RunButton";
 import HeaderProfileBtn from "./HeaderProfileBtn";
 import { SignedIn, SignedOut, SignUpButton } from "@clerk/nextjs";
-
 
 async function Header() {
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
@@ -47,7 +46,7 @@ async function Header() {
                 BHASHA-HUB
               </span>
               <span className="block text-xs text-blue-400/60 font-medium">
-              pre-defined code runner
+                pre-defined code runner
               </span>
             </div>
           </Link>
@@ -81,31 +80,24 @@ async function Header() {
           </div>
 
           {!convexUser?.isPro && (
-  <Link
-    href="/pricing"
-    className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
+            <Link
+              href="/pricing"
+              className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
       to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
       transition-all duration-300"
-  >
-    <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
-    <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
-      Pro
-    </span>
-  </Link>
-)}
+            >
+              <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
+              <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
+                Pro
+              </span>
+            </Link>
+          )}
+          <SignedIn>
+            <RunButton />
+          </SignedIn>
 
-<SignedIn>
-  <RunButton />
-</SignedIn>
-
-<div className="pl-3 border-l border-gray-800">
-  <SignedOut>
-    <SignUpButton/>
-  </SignedOut>
-
-  <SignedIn>
-    <HeaderProfileBtn />
-  </SignedIn>
+          <div className="pl-3 border-l border-gray-800">
+            <HeaderProfileBtn />
           </div>
         </div>
       </div>
