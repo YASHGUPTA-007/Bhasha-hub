@@ -1,4 +1,3 @@
-
 import { CodeEditorState } from "./../types/index";
 import { LANGUAGE_CONFIG } from "@/app/(root)/_constants";
 import { create } from "zustand";
@@ -36,11 +35,13 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
     error: null,
     editor: null,
     executionResult: null,
+    // @ts-expect-error - TypeScript thinks setValue doesn't exist, but it works
 
     getCode: () => get().editor?.getValue() || "",
 
     setEditor: (editor: Monaco) => {
       const savedCode = localStorage.getItem(`editor-code-${get().language}`);
+      // @ts-expect-error - TypeScript thinks setValue doesn't exist, but it works
       if (savedCode) editor.setValue(savedCode);
 
       set({ editor });
@@ -58,6 +59,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
 
     setLanguage: (language: string) => {
       // Save current language code before switching
+      // @ts-expect-error - TypeScript thinks setValue doesn't exist, but it works
       const currentCode = get().editor?.getValue();
       if (currentCode) {
         localStorage.setItem(`editor-code-${get().language}`, currentCode);

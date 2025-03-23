@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import StarButton from "@/components/StarButton";
 
 function SnippetCard({ snippet }: { snippet: Snippet }) {
-  const { user } = useUser();      // give current user
+  const { user } = useUser();
   const deleteSnippet = useMutation(api.snippets.deleteSnippet);
   const [isDeleting, setIsDeleting] = useState(false);
 
