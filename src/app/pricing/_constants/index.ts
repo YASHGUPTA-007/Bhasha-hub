@@ -27,7 +27,7 @@ export const ENTERPRISE_FEATURES = [
   {
     icon: Bot,  
     label: "AI Chatbot Support (24/7)",
-    desc: "Get instant answers to your coding queries anytime with our advanced AI chatbot.",
+    desc: "Get instant answers to your coding queries anytime with our AI chatbot.",
   },
   {
     icon: MessageCircle,  
