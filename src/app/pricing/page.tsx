@@ -12,7 +12,22 @@ import UpgradeButton from "./_components/UpgradeButton";
 import LoginButton from "@/components/LoginButton";
 import CanvasCursor from "@/components/CanvasCursor";
 import Footer from "./_components/Footer";
+import { IconCloud } from "@/components/magicui/icon-cloud";
 
+const imageUrls = [
+  "/bash.png",
+  "/cpp.png",
+  "/csharp.png",
+  "/go.png",
+  "/java.png",
+  "/javascript.png",
+  "/python.png",
+  "/ruby.png",
+  "/rust.png",
+  "/swift.png",
+  "/ts.png",
+  "/typescript.png",
+];
 
 const languages = [
   "JavaScript",
@@ -60,7 +75,21 @@ async function PricingPage() {
               of tools
             </p>
           </div>
-          {/* Moving Bar below Main Heading */}
+
+          {/* Supported Languages Section */}
+          <div className="flex flex-col items-center justify-center my-10 px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+              Supported Languages
+            </h2>
+            <div className="w-full flex items-center justify-center">
+              <IconCloud
+                images={imageUrls}
+                
+              />
+            </div>
+          </div>
+
+          {/* Moving Language Marquee */}
           <div className="overflow-hidden whitespace-nowrap py-4 bg-[#12121a]">
             <div className="animate-marquee flex space-x-8 text-xl font-semibold text-blue-400">
               {languages.map((lang, index) => (
@@ -156,13 +185,10 @@ async function PricingPage() {
             </div>
           </div>
         </div>
-        
       </main>
-      <CanvasCursor/>
+      <CanvasCursor />
       <Footer />
-      
     </div>
-    
   );
 }
 export default PricingPage;
