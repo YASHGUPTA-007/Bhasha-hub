@@ -51,8 +51,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
     const newIconCanvases = items.map((item, index) => {
       const offscreen = document.createElement("canvas");
-      offscreen.width = 40;
-      offscreen.height = 40;
+      offscreen.width = 100;
+      offscreen.height = 100;
       const offCtx = offscreen.getContext("2d");
 
       if (offCtx) {
@@ -65,13 +65,21 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
 
             // Create circular clipping path
-            offCtx.beginPath();
-            offCtx.arc(20, 20, 20, 0, Math.PI * 2);
-            offCtx.closePath();
-            offCtx.clip();
+            const imgSize = Math.min(img.width, img.height); // Get the smallest side of the image
+            const sx = (img.width - imgSize) / 2;  // Start X position to crop
+            const sy = (img.height - imgSize) / 2; // Start Y position to crop
+            
+            offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
+            offCtx.drawImage(
+              img,         // Source image
+              sx, sy,      // Start cropping from the center
+              imgSize, imgSize,  // Crop to a square
+              0, 0,        // Position on canvas
+              100, 100     // Resize to fit
+            );
 
             // Draw the image
-            offCtx.drawImage(img, 0, 0, 40, 40);
+            offCtx.drawImage(img, 0, 0, 100, 100); 
 
             imagesLoadedRef.current[index] = true;
           };
@@ -113,10 +121,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const z = Math.sin(phi) * r;
 
       newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
-        scale: 1,
+        x: x * 250, // Increase from 250 to 350
+        y: y * 250,
+        z: z * 250,
+        scale: 1,  // Increase scale slightly
         opacity: 1,
         id: i,
       });
@@ -278,7 +286,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             iconCanvasesRef.current[index] &&
             imagesLoadedRef.current[index]
           ) {
-            ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
+            ctx.drawImage(iconCanvasesRef.current[index], -40, -40, 70, 70);
           }
         } else {
           // Show numbered circles if no icons/images are provided
@@ -310,8 +318,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   return (
     <canvas
       ref={canvasRef}
-      width={400}
-      height={400}
+      width={800}
+      height={800}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}

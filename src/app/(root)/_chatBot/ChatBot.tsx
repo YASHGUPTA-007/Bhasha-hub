@@ -1,9 +1,19 @@
-"use client"
+"use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Send, Bot, User, Loader2, Code2, MessageCircle, X, MinusCircle } from "lucide-react";
+import {
+  Send,
+  Bot,
+  User,
+  Loader2,
+  Code2,
+  MessageCircle,
+  X,
+  MinusCircle,
+} from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import ReactMarkdown from "react-markdown";
+import { Bot as BotIcon } from "lucide-react";
 
 interface Message {
   id: string;
@@ -37,7 +47,10 @@ const ChatBot: React.FC = () => {
   // Click outside handler
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (chatBoxRef.current && !chatBoxRef.current.contains(event.target as Node)) {
+      if (
+        chatBoxRef.current &&
+        !chatBoxRef.current.contains(event.target as Node)
+      ) {
         setIsMinimized(true);
       }
     };
@@ -83,45 +96,62 @@ const ChatBot: React.FC = () => {
   return (
     <div className="fixed bottom-0 right-0 z-50 p-4 md:p-6">
       {/* Floating Chat Button */}
-      <button
-        onClick={() => {
-          setIsOpen(!isOpen);
-          setIsMinimized(false);
-        }}
-        className="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-      >
-        <MessageCircle className="w-6 h-6 text-white" />
-      </button>
+      
+    <button
+      onClick={() => {
+        setIsOpen((prev) => !prev);
+        setIsMinimized(false);
+      }}
+      className="w-16 h-16 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full 
+        flex items-center justify-center shadow-xl transition-all duration-300 transform 
+        hover:scale-110 hover:shadow-[0_0_25px_rgba(0,195,255,0.8)] 
+        focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 
+        relative overflow-hidden"
+    >
+      <Bot className="w-10 h-10 text-white transition-all duration-300 
+        group-hover:scale-110 group-hover:text-blue-200" />
+
+      {/* Glowing effect */}
+      <div className="absolute w-full h-full rounded-full bg-blue-400 opacity-20 blur-xl scale-75 
+        group-hover:opacity-50 group-hover:scale-90 transition-all duration-500">
+      </div>
+    </button>
 
       {/* Chat Box */}
       {isOpen && (
         <div
           ref={chatBoxRef}
           style={{
-            transform: isMinimized ? 'translateY(85%)' : 'translateY(0)',
+            transform: isMinimized ? "translateY(85%)" : "translateY(0)",
           }}
           className="fixed right-4 bottom-20 md:right-6 md:bottom-24 w-[95vw] sm:w-[350px] max-h-[500px] bg-[#0B1017] rounded-xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden transition-transform duration-300"
         >
           {/* Chat Header */}
-          <div 
+          <div
             className="bg-[#1E2530] p-4 border-b border-gray-700 cursor-pointer flex justify-between items-center"
             onClick={() => setIsMinimized(!isMinimized)}
           >
             <div className="flex items-center gap-3">
               <Code2 className="w-5 h-5 text-[#3B82F6]" />
-              <h1 className="text-lg font-semibold text-white">Bhasha-Hub Assistant</h1>
+              <h1 className="text-lg font-semibold text-white">
+                Bhasha-Hub Assistant
+              </h1>
             </div>
             <div className="flex gap-2">
-              <button onClick={(e) => {
-                e.stopPropagation();
-                setIsMinimized(!isMinimized);
-              }}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMinimized(!isMinimized);
+                }}
+              >
                 <MinusCircle className="w-5 h-5 text-gray-400 hover:text-gray-200" />
               </button>
-              <button onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(false);
-              }}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
+                }}
+              >
                 <X className="w-5 h-5 text-gray-400 hover:text-gray-200" />
               </button>
             </div>
@@ -199,51 +229,6 @@ const ChatBot: React.FC = () => {
 };
 
 export default ChatBot;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // "use client";
 // import React, { useState } from "react";
