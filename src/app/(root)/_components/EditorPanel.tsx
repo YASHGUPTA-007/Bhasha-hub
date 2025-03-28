@@ -42,7 +42,7 @@ function EditorPanel() {
   };
 
   const handleFontSizeChange = (newSize: number) => {
-    const size = Math.min(Math.max(newSize, 12), 24);
+    const size = Math.min(Math.max(newSize, 8), 40);
     setFontSize(size);
     localStorage.setItem("editor-font-size", size.toString());
   };
@@ -70,8 +70,8 @@ function EditorPanel() {
               <div className="flex items-center gap-3">
                 <input
                   type="range"
-                  min="12"
-                  max="24"
+                  min="8"
+                  max="40"
                   value={fontSize}
                   onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
                   className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
