@@ -25,6 +25,17 @@ function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const scrollToBottomMobile = () => {
+    if (isMobile) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 2000);
+    }
+  };
+
   useEffect(() => {
     const fetchConvexUser = async () => {
       if (user?.id) {
@@ -39,7 +50,7 @@ function Header() {
 
   const showProCTA = !user || !convexUser?.isPro;
 
-  //MOBILE UI 
+  //MOBILE UI
   if (isMobile) {
     return (
       <div className="relative z-10 w-full p-4 bg-[#0a0a0f]/80 backdrop-blur-xl rounded-lg">
@@ -92,14 +103,16 @@ function Header() {
         {/* Run Button (only when signed in) */}
         <div className="w-full flex justify-center mt-3">
           <SignedIn>
-            <RunButton />
+            <div onClick={scrollToBottomMobile}>
+              <RunButton />
+            </div>
           </SignedIn>
         </div>
       </div>
     );
   }
 
-  // DESKTOP UI 
+  // DESKTOP UI
   return (
     <div className="relative z-10 w-full">
       <div className="flex items-center lg:justify-between justify-center bg-[#0a0a0f]/80 backdrop-blur-xl p-6 mb-4 rounded-lg">
