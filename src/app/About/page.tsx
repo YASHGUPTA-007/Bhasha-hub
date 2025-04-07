@@ -1,12 +1,9 @@
 import NavigationHeader from "@/components/NavigationHeader";
 import { ENTERPRISE_FEATURES, FEATURES } from "./_constants";
-
-import FeatureCategory from "./_components/FeatureCategory";
-import FeatureItem from "./_components/FeatureItem";
-
 import CanvasCursor from "@/components/CanvasCursor";
 import Footer from "./_components/Footer";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+
 
 const imageUrls = [
   "/bash.png",
@@ -67,10 +64,9 @@ function About() {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
               Supported Languages
             </h2>
-            <div className="w-full flex items-center justify-center">
-              <div className="w-[800px] h-[800px]">
-                {" "}
-                {/* Manually setting 2x size */}
+            {/* Show IconCloud only on sm and above */}
+            <div className="hidden sm:flex items-center justify-center">
+              <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px]">
                 <IconCloud images={imageUrls} />
               </div>
             </div>
@@ -89,35 +85,34 @@ function About() {
 
           {/* Enterprise Features */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-  {ENTERPRISE_FEATURES.map((feature, index) => (
-    <div
-      key={index}
-      className="group relative bg-gradient-to-b from-[#12121a] to-[#0a0a0f] 
+            {ENTERPRISE_FEATURES.map((feature, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-b from-[#12121a] to-[#0a0a0f] 
         rounded-3xl p-8 transition-all duration-300 transform 
         flex flex-col items-center justify-center text-center 
         shadow-lg perspective-1000 
         hover:scale-105 hover:rotate-x-6 hover:rotate-y-6
         hover:shadow-[0_0_20px_rgba(0,162,255,0.4)]"
-    >
-      <div
-        className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 
+              >
+                <div
+                  className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 
           flex items-center justify-center mb-4 ring-1 ring-gray-800/60 
           group-hover:ring-blue-500/40 transition-all duration-300
           group-hover:shadow-[0_0_15px_rgba(0,162,255,0.6)]"
-      >
-        <feature.icon className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-all duration-300" />
-      </div>
+                >
+                  <feature.icon className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-all duration-300" />
+                </div>
 
-      <h3 className="text-xl font-medium text-white mb-2 group-hover:text-blue-300 transition-all duration-300">
-        {feature.label}
-      </h3>
-      <p className="text-gray-400 group-hover:text-gray-300 transition-all duration-300">
-        {feature.desc}
-      </p>
-    </div>
-  ))}
-</div>
-   
+                <h3 className="text-xl font-medium text-white mb-2 group-hover:text-blue-300 transition-all duration-300">
+                  {feature.label}
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-all duration-300">
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
 
