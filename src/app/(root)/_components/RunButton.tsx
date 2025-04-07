@@ -1,6 +1,9 @@
 "use client";
 
-import { getExecutionResult, useCodeEditorStore } from "@/store/useCodeEditorStore";
+import {
+  getExecutionResult,
+  useCodeEditorStore,
+} from "@/store/useCodeEditorStore";
 import { useUser } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
 import { motion } from "framer-motion";
@@ -33,30 +36,30 @@ function RunButton() {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`
-        group relative inline-flex items-center gap-2.5 px-5 py-2.5
-        disabled:cursor-not-allowed
-        focus:outline-none
+        group relative inline-flex items-center gap-2 
+        px-4 py-2 sm:px-5 sm:py-2.5
+        disabled:cursor-not-allowed focus:outline-none
       `}
     >
-      {/* bg wit gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl opacity-100 transition-opacity group-hover:opacity-90" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg sm:rounded-xl opacity-100 transition-opacity group-hover:opacity-90" />
 
-      <div className="relative flex items-center gap-2.5">
+      <div className="relative flex items-center gap-2">
         {isRunning ? (
           <>
             <div className="relative">
-              <Loader2 className="w-4 h-4 animate-spin text-white/70" />
+              <Loader2 className="w-4 h-4 sm:w-4 sm:h-4 animate-spin text-white/70" />
               <div className="absolute inset-0 blur animate-pulse" />
             </div>
-            <span className="text-sm font-medium text-white/90">Executing...</span>
+            <span className="text-sm font-medium text-white/90">...</span>
           </>
         ) : (
           <>
-            <div className="relative flex items-center justify-center w-4 h-4">
-              <Play className="w-4 h-4 text-white/90 transition-transform group-hover:scale-110 group-hover:text-white" />
+            <div className="relative flex items-center justify-center w-4 h-4 sm:w-4 sm:h-4">
+              <Play className="w-4 h-4 sm:w-4 sm:h-4 text-white/90 transition-transform group-hover:scale-110 group-hover:text-white" />
             </div>
             <span className="text-sm font-medium text-white/90 group-hover:text-white">
-              Run Code
+              Run
             </span>
           </>
         )}
@@ -64,4 +67,5 @@ function RunButton() {
     </motion.button>
   );
 }
+
 export default RunButton;

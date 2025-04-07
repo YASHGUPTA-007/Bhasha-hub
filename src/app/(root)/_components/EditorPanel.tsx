@@ -53,60 +53,108 @@ function EditorPanel() {
     <div className="relative">
       <div className="relative bg-[#12121a]/90 backdrop-blur rounded-xl border border-white/[0.05] p-6">
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
-              <Image src={"/" + language + ".png"} alt="Logo" width={24} height={24} />
-            </div>
-            <div>
-              <h2 className="text-sm font-medium text-white">Code Editor</h2>
-              <p className="text-xs text-gray-500">Write and execute your code</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            {/* Font Size Slider */}
-            <div className="flex items-center gap-3 px-3 py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
-              <TypeIcon className="size-4 text-gray-400" />
-              <div className="flex items-center gap-3">
-                <input
-                  type="range"
-                  min="8"
-                  max="40"
-                  value={fontSize}
-                  onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
-                  className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
-                />
-                <span className="text-sm font-medium text-gray-400 min-w-[2rem] text-center">
-                  {fontSize}
-                </span>
-              </div>
+        <div className="mb-4">
+          {/* Mobile View */}
+          <div className="flex items-center justify-between gap-2 sm:hidden">
+            {/* Language Logo */}
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
+              <Image src={"/" + language + ".png"} alt="Logo" width={20} height={20} />
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleRefresh}
-              className="p-2 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-lg ring-1 ring-white/5 transition-colors"
-              aria-label="Reset to default code"
-            >
-              <RotateCcwIcon className="size-4 text-gray-400" />
-            </motion.button>
+            {/* Font Size */}
+            <div className="flex items-center gap-2 px-2 py-1 bg-[#1e1e2e] rounded-md ring-1 ring-white/5">
+              <TypeIcon className="size-3 text-gray-400" />
+              <input
+                type="range"
+                min="8"
+                max="40"
+                value={fontSize}
+                onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
+                className="w-16 h-1 bg-gray-600 rounded cursor-pointer"
+              />
+              <span className="text-xs text-gray-400">{fontSize}</span>
+            </div>
 
             {/* Share Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsShareDialogOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg overflow-hidden bg-gradient-to-r
-               from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100"
             >
-              <ShareIcon className="size-4 text-white" />
-              <span className="text-sm font-medium text-white ">Share</span>
+              <ShareIcon className="size-3 text-white" />
+              <span className="text-xs font-medium text-white">Share</span>
             </motion.button>
+
+            {/* Reset Button */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleRefresh}
+              className="p-1.5 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-md ring-1 ring-white/5"
+              aria-label="Reset to default code"
+            >
+              <RotateCcwIcon className="size-3 text-gray-400" />
+            </motion.button>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden sm:flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
+                <Image src={"/" + language + ".png"} alt="Logo" width={24} height={24} />
+              </div>
+              <div>
+                <h2 className="text-sm font-medium text-white">Code Editor</h2>
+                <p className="text-xs text-gray-500">Write and execute your code</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {/* Font Size */}
+              <div className="flex items-center gap-3 px-3 py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
+                <TypeIcon className="size-4 text-gray-400" />
+                <div className="flex items-center gap-3">
+                  <input
+                    type="range"
+                    min="8"
+                    max="40"
+                    value={fontSize}
+                    onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
+                    className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
+                  />
+                  <span className="text-sm font-medium text-gray-400 min-w-[2rem] text-center">
+                    {fontSize}
+                  </span>
+                </div>
+              </div>
+
+              {/* Reset Button */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleRefresh}
+                className="p-2 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-lg ring-1 ring-white/5 transition-colors"
+                aria-label="Reset to default code"
+              >
+                <RotateCcwIcon className="size-4 text-gray-400" />
+              </motion.button>
+
+              {/* Share Button */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsShareDialogOpen(true)}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity"
+              >
+                <ShareIcon className="size-4 text-white" />
+                <span className="text-sm font-medium text-white">Share</span>
+              </motion.button>
+            </div>
           </div>
         </div>
 
-        {/* Editor  */}
+        {/* Editor */}
         <div className="relative group rounded-xl overflow-hidden ring-1 ring-white/[0.05]">
           {clerk.loaded && (
             <Editor
@@ -140,12 +188,14 @@ function EditorPanel() {
               }}
             />
           )}
-
           {!clerk.loaded && <EditorPanelSkeleton />}
         </div>
       </div>
+
+      {/* Share Dialog */}
       {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
     </div>
   );
 }
+
 export default EditorPanel;
