@@ -37,6 +37,12 @@ function EditorPanel() {
     localStorage.removeItem(`editor-code-${language}`);
   };
 
+  const handleClearEditor = () => {
+    // @ts-expect-error
+    if (editor) editor.setValue("");
+    localStorage.removeItem(`editor-code-${language}`);
+  };
+
   const handleEditorChange = (value: string | undefined) => {
     if (value) localStorage.setItem(`editor-code-${language}`, value);
   };
@@ -86,6 +92,17 @@ function EditorPanel() {
               <span className="text-xs font-medium text-white">Share</span>
             </motion.button>
 
+            {/* Clear Button */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleClearEditor}
+              className="p-1.5 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-md ring-1 ring-white/5"
+              aria-label="Clear editor"
+            >
+              <span className="text-[10px] text-gray-400 font-semibold">CLR</span>
+            </motion.button>
+
             {/* Reset Button */}
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -128,6 +145,17 @@ function EditorPanel() {
                   </span>
                 </div>
               </div>
+
+              {/* Clear Button */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleClearEditor}
+                className="p-2 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-lg ring-1 ring-white/5 transition-colors"
+                aria-label="Clear editor"
+              >
+                <span className="text-xs text-gray-400 font-semibold">CLR</span>
+              </motion.button>
 
               {/* Reset Button */}
               <motion.button
