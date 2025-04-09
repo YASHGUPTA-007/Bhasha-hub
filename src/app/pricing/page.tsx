@@ -13,6 +13,7 @@ import LoginButton from "@/components/LoginButton";
 import CanvasCursor from "@/components/CanvasCursor";
 import Footer from "./_components/Footer";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { IconCloudMobile } from "@/components/magicui/icon-cloud-m";
 
 const imageUrls = [
   "/bash.png",
@@ -81,11 +82,15 @@ async function PricingPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
               Supported Languages
             </h2>
-            <div className="w-full flex items-center justify-center">
-              <IconCloud
-                images={imageUrls}
-                
-              />
+            {/* Mobile View */}
+            {/* Mobile View */}
+            <div className="w-full flex items-center justify-center md:hidden">
+              <IconCloudMobile images={imageUrls} />
+            </div>
+
+            {/* Laptop/Desktop View */}
+            <div className="w-full items-center justify-center hidden md:flex">
+              <IconCloud images={imageUrls} />
             </div>
           </div>
 

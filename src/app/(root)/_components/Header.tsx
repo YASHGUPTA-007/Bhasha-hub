@@ -11,6 +11,7 @@ import ThemeSelector from "./ThemeSelector";
 import LanguageSelector from "./LanguageSelector";
 import RunButton from "./RunButton";
 import HeaderProfileBtn from "./HeaderProfileBtn";
+import { setTimeout } from "timers/promises";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
@@ -27,7 +28,7 @@ function Header() {
 
   const scrollToBottomMobile = () => {
     if (isMobile) {
-      setTimeout(() => {
+      window.setTimeout(() => {
         window.scrollTo({
           top: document.body.scrollHeight,
           behavior: "smooth",
@@ -35,7 +36,6 @@ function Header() {
       }, 2000);
     }
   };
-
   useEffect(() => {
     const fetchConvexUser = async () => {
       if (user?.id) {

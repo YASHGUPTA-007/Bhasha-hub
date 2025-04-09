@@ -3,6 +3,7 @@ import { ENTERPRISE_FEATURES, FEATURES } from "./_constants";
 import CanvasCursor from "@/components/CanvasCursor";
 import Footer from "./_components/Footer";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { IconCloudMobile } from "@/components/magicui/icon-cloud-m";
 
 
 const imageUrls = [
@@ -65,11 +66,16 @@ function About() {
               Supported Languages
             </h2>
             {/* Show IconCloud only on sm and above */}
-            <div className="hidden sm:flex items-center justify-center">
-              <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px]">
-                <IconCloud images={imageUrls} />
-              </div>
-            </div>
+           {/* Mobile View */}
+<div className="w-full flex items-center justify-center md:hidden">
+  <IconCloudMobile images={imageUrls} />
+</div>
+
+{/* Laptop/Desktop View */}
+<div className="w-full items-center justify-center hidden md:flex">
+  <IconCloud images={imageUrls} />
+</div>
+
           </div>
 
           {/* Moving Language Marquee */}
