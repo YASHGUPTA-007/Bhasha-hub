@@ -3,6 +3,7 @@ import EditorPanel from "./_components/EditorPanel";
 import Header from "./_components/Header";
 import OutputPanel from "./_components/OutputPanel";
 import ChatBot from "./_chatBot/ChatBot";
+import Footer from "@/components/footer";
  
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <OutputPanel />
         </div>
       </div>
+      <Footer/>
     </div>
     <ChatBot/>
     
