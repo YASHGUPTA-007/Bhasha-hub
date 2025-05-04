@@ -19,8 +19,6 @@ Throughout the development, I learned a lot about:
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
-
 ### Desktop and Mobile Responsive Views
 
 ![Responsive design showcasing Bhasha-Hub's balanced visual appeal and functionality across desktop screens.](./public/Screenshot%202025-04-26%20162742.png)
