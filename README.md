@@ -27,7 +27,147 @@ Throughout the development, I learned a lot about:
 
 ### Folder/Files Structure
 
-![Folder/Files structure of Bhasha-Hub project.](./public/code.png)
+Bhasha-hub/
+├── .eslintrc.json
+├── .gitignore
+├── README.md
+├── components.json
+├── convex
+│   ├── README.md
+│   ├── _generated
+│   │   ├── api.d.ts
+│   │   ├── api.js
+│   │   ├── dataModel.d.ts
+│   │   ├── server.d.ts
+│   │   └── server.js
+│   ├── auth.config.ts
+│   ├── codeExecutions.ts
+│   ├── http.ts
+│   ├── lemonSqueezy.ts
+│   ├── schema.ts
+│   ├── snippets.ts
+│   ├── tsconfig.json
+│   └── users.ts
+├── lib
+│   ├── auth.ts
+│   └── util.tsx
+├── next.config.ts
+├── note.csv
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── Screenshot 2025-04-26 162742.png
+│   ├── Screenshot 2025-04-26 162826.png
+│   ├── bash.png
+│   ├── code.png
+│   ├── cpp.png
+│   ├── csharp.png
+│   ├── go.png
+│   ├── java.png
+│   ├── javascript.png
+│   ├── js.png
+│   ├── python.png
+│   ├── ruby.png
+│   ├── rust.png
+│   ├── swift.png
+│   ├── ts.png
+│   ├── typescript.png
+│   └── vercel.svg
+├── src
+│   ├── app
+│   │   ├── (root)
+│   │   │   ├── _chatBot
+│   │   │   │   └── ChatBot.tsx
+│   │   │   ├── _components
+│   │   │   │   ├── ClientWrapper.tsx
+│   │   │   │   ├── EditorPanel.tsx
+│   │   │   │   ├── EditorPanelSkeleton.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── HeaderProfileBtn.tsx
+│   │   │   │   ├── LanguageSelector.tsx
+│   │   │   │   ├── OutputPanel.tsx
+│   │   │   │   ├── RunButton.tsx
+│   │   │   │   ├── RunningCodeSkeleton.tsx
+│   │   │   │   ├── ShareSnippetDialog.tsx
+│   │   │   │   └── ThemeSelector.tsx
+│   │   │   ├── _constants
+│   │   │   │   └── index.ts
+│   │   │   └── page.tsx
+│   │   ├── About
+│   │   │   ├── _components
+│   │   │   │   ├── FeatureCategory.tsx
+│   │   │   │   ├── FeatureItem.tsx
+│   │   │   │   ├── Footer.tsx
+│   │   │   │   ├── ProPlanView.tsx
+│   │   │   │   └── UpgradeButton.tsx
+│   │   │   ├── _constants
+│   │   │   │   └── index.ts
+│   │   │   └── page.tsx
+│   │   ├── auth.config.ts
+│   │   ├── favicon.ico
+│   │   ├── fonts
+│   │   │   ├── GeistMonoVF.woff
+│   │   │   └── GeistVF.woff
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── pricing
+│   │   │   ├── _components
+│   │   │   │   ├── FeatureCategory.tsx
+│   │   │   │   ├── FeatureItem.tsx
+│   │   │   │   ├── Footer.tsx
+│   │   │   │   ├── ProPlanView.tsx
+│   │   │   │   └── UpgradeButton.tsx
+│   │   │   ├── _constants
+│   │   │   │   └── index.ts
+│   │   │   └── page.tsx
+│   │   ├── profile
+│   │   │   ├── _components
+│   │   │   │   ├── CodeBlock.tsx
+│   │   │   │   ├── ProfileHeader.tsx
+│   │   │   │   └── ProfileHeaderSkeleton.tsx
+│   │   │   └── page.tsx
+│   │   └── snippets
+│   │       ├── [id]
+│   │       │   ├── _components
+│   │       │   │   ├── CodeBlock.tsx
+│   │       │   │   ├── Comment.tsx
+│   │       │   │   ├── CommentContent.tsx
+│   │       │   │   ├── CommentForm.tsx
+│   │       │   │   ├── Comments.tsx
+│   │       │   │   ├── CopyButton.tsx
+│   │       │   │   └── SnippetLoadingSkeleton.tsx
+│   │       │   └── page.tsx
+│   │       ├── _components
+│   │       │   ├── SnippetCard.tsx
+│   │       │   └── SnippetsPageSkeleton.tsx
+│   │       └── page.tsx
+│   ├── components
+│   │   ├── CanvasCursor.tsx
+│   │   ├── LoginButton.tsx
+│   │   ├── NavigationHeader.tsx
+│   │   ├── StarButton.tsx
+│   │   ├── footer.tsx
+│   │   ├── magicui
+│   │   │   ├── icon-cloud-m.tsx
+│   │   │   └── icon-cloud.tsx
+│   │   └── providers
+│   │       └── ConvexClientProvider.tsx
+│   ├── hooks
+│   │   ├── useCanvasCursor.ts
+│   │   └── useMounted.tsx
+│   ├── lib
+│   │   └── utils.ts
+│   ├── middleware.ts
+│   ├── store
+│   │   └── useCodeEditorStore.ts
+│   ├── styles
+│   │   └── Global.css
+│   └── types
+│       └── index.ts
+├── tailwind.config.ts
+└── tsconfig.json
+
 
 
 ---
