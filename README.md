@@ -25,6 +25,10 @@ Throughout the development, I learned a lot about:
 
 ![Responsive design showcasing Bhasha-Hub's balanced visual appeal and functionality across mobile screens.](./public/Screenshot%202025-04-26%20162826.png)
 
+### Folder/Files Structure
+
+ Added soon💫
+
 ---
 
 ## 🚀 Installation Instructions
