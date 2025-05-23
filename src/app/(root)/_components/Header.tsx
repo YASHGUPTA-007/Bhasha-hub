@@ -80,10 +80,19 @@ function Header() {
         </Link>
 
         {/* Theme + Language */}
-        <div className="flex items-center justify-between gap-4 px-4 py-2 bg-gray-100 rounded-md">
-          <ThemeSelector />
-          <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
-        </div>
+ <div className="grid grid-cols-2 gap-3 px-4 py-2 rounded-md">
+  <div className="w-full">
+    <div className="w-full h-full">
+      <ThemeSelector />
+    </div>
+  </div>
+  <div className="w-full">
+    <div className="w-full h-full">
+      <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
+    </div>
+  </div>
+</div>
+
 
         {/*  Pro CTA below selectors when not signed in or not pro */}
         {showProCTA && (
@@ -101,7 +110,7 @@ function Header() {
         )}
 
         {/* Run Button (only when signed in) */}
-        <div className="flex items-center justify-between gap-4 px-4 py-2 bg-gray-100 rounded-md">
+        <div className="w-full flex justify-center mt-3">
           <SignedIn>
             <div onClick={scrollToBottomMobile}>
               <RunButton />
