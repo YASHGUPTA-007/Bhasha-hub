@@ -80,7 +80,7 @@ function Header() {
         </Link>
 
         {/* Theme + Language */}
-        <div className="flex justify-between gap-3 mb-2">
+        <div className="flex items-center justify-between gap-4 px-4 py-2 bg-gray-100 rounded-md">
           <ThemeSelector />
           <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
         </div>
@@ -101,7 +101,7 @@ function Header() {
         )}
 
         {/* Run Button (only when signed in) */}
-        <div className="w-full flex justify-center mt-3">
+        <div className="flex items-center justify-between gap-4 px-4 py-2 bg-gray-100 rounded-md">
           <SignedIn>
             <div onClick={scrollToBottomMobile}>
               <RunButton />
@@ -113,78 +113,79 @@ function Header() {
   }
 
   // DESKTOP UI
-  return (
-    <div className="relative z-10 w-full">
-      <div className="flex items-center lg:justify-between justify-center bg-[#0a0a0f]/80 backdrop-blur-xl p-6 mb-4 rounded-lg">
-        {/* Left: Logo + Snippets */}
-        <div className="hidden lg:flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-3 group relative">
-            <Code2 className="size-8 text-blue-400" />
-            <div className="flex flex-col">
-              <span className="block text-2xl font-serif bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 text-transparent bg-clip-text">
-                BHASHA-HUB
-              </span>
-              <span className="block text-xs text-blue-400/60 font-medium">
-                pre-defined code runner
-              </span>
-            </div>
-          </Link>
+return (
+  <div className="relative z-10 w-full">
+    <div className="flex items-center lg:justify-between justify-center bg-[#0a0a0f]/80 backdrop-blur-xl p-6 mb-4 rounded-lg">
+      
+      {/* Left: Logo + Snippets */}
+      <div className="hidden lg:flex items-center gap-8">
+        <Link href="/" className="flex items-center gap-3 group relative">
+          <Code2 className="size-8 text-blue-400" />
+          <div className="flex flex-col">
+            <span className="block text-2xl font-serif bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 text-transparent bg-clip-text">
+              BHASHA-HUB
+            </span>
+            <span className="block text-xs text-blue-400/60 font-medium">
+              pre-defined code runner
+            </span>
+          </div>
+        </Link>
 
-          {/* Snippets */}
-          <nav className="flex items-center space-x-1">
-            <Link
-              href="/snippets"
-              className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
-                hover:bg-blue-500/10 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg"
-            >
-              <Code2 className="w-4 h-4 relative z-10" />
-              <span className="text-sm font-medium relative z-10">
-                Snippets
-              </span>
-            </Link>
-          </nav>
+        <nav className="flex items-center space-x-1">
+          <Link
+            href="/snippets"
+            className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
+              hover:bg-blue-500/10 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg"
+          >
+            <Code2 className="w-4 h-4 relative z-10" />
+            <span className="text-sm font-medium relative z-10">
+              Snippets
+            </span>
+          </Link>
+        </nav>
+      </div>
+
+      {/* Right Side */}
+      <div className="flex items-center gap-4">
+        {/* Theme + Language */}
+        <div className="flex items-center gap-3">
+          <div className="min-w-0">
+            <ThemeSelector />
+          </div>
+          <div className="min-w-0">
+            <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
+          </div>
         </div>
 
-        {/* Right: Theme, Lang, Pro, Run, Profile */}
-        <div className="flex items-center gap-4">
-          {/* Theme & Lang Selectors */}
-          <div className="flex justify-between gap-3 mb-3">
-            <div className="w-1/2 min-w-0">
-              <ThemeSelector />
-            </div>
-            <div className="w-1/2 min-w-0">
-              <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
-            </div>
-          </div>
+        {/* Pro CTA */}
+        {showProCTA && (
+          <Link
+            href="/pricing"
+            className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
+              to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
+              transition-all duration-300"
+          >
+            <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
+            <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
+              Pro
+            </span>
+          </Link>
+        )}
 
-          {/* ✅ Pro CTA below selectors when not signed in or not pro */}
-          {showProCTA && (
-            <Link
-              href="/pricing"
-              className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
-                to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
-                transition-all duration-300"
-            >
-              <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
-              <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
-                Pro
-              </span>
-            </Link>
-          )}
+        {/* Run Button */}
+        <SignedIn>
+          <RunButton />
+        </SignedIn>
 
-          {/* Run + Profile */}
-          <SignedIn>
-            <RunButton />
-          </SignedIn>
-
-          {/* Profile Button */}
-          <div className="pl-3 border-l border-gray-800">
-            <HeaderProfileBtn />
-          </div>
+        {/* Profile Button */}
+        <div className="pl-3 border-l border-gray-800">
+          <HeaderProfileBtn />
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Header;
