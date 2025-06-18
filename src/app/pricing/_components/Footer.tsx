@@ -28,12 +28,12 @@ const Footer = () => {
             <h3 className="text-white font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="https://github.com/YASHGUPTA-007/Bhasha-hub" className="text-gray-400 hover:text-blue-400 transition-colors">
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="https://github.com/YASHGUPTA-007/Bhasha-hub" className="text-gray-400 hover:text-blue-400 transition-colors">
                   Tutorials
                 </a>
               </li>
@@ -50,7 +50,7 @@ const Footer = () => {
             <h3 className="text-white font-medium mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/YASHGUPTA-007/Bhasha-hub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 
@@ -60,7 +60,7 @@ const Footer = () => {
                 <Github className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/yash-gupta-code007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 
@@ -70,7 +70,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:your.yash.gupta.11.7.2004@gmail.com"
                 className="p-2 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 
                 ring-1 ring-gray-800/60 hover:ring-blue-500/20 transition-all duration-300
                 group hover:scale-110"
