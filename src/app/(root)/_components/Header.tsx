@@ -5,7 +5,7 @@ import { useUser, SignedIn } from "@clerk/nextjs";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 import Link from "next/link";
-import { Code2, Sparkles } from "lucide-react";
+import { Code2, Github, Sparkles } from "lucide-react";
 
 import ThemeSelector from "./ThemeSelector";
 import LanguageSelector from "./LanguageSelector";
@@ -137,6 +137,7 @@ return (
             <span className="block text-xs text-blue-400/60 font-medium">
               pre-defined code runner
             </span>
+             
           </div>
         </Link>
 
@@ -152,6 +153,14 @@ return (
             </span>
           </Link>
         </nav>
+                    <a
+              href="https://github.com/YASHGUPTA-007/Bhasha-hub"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Github/>
+            </a>
       </div>
 
       {/* Right Side */}
