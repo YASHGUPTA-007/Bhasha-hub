@@ -17,7 +17,7 @@ function RunButton() {
 
   const handleRun = async () => {
     await runCode();
-    const result = getExecutionResult();
+    const result = 
 
     if (user && result) {
       await saveExecution({
